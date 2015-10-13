@@ -28,26 +28,35 @@ function nothingmore_process_html(&$variables) {
 function nothingmore_process_page(&$variables) {
 }
 
-/**
- * Implements hook_preprocess_maintenance_page().
-
-function nothingmore_preprocess_maintenance_page(&$variables) {
-  // By default, site_name is set to Drupal if no db connection is available
-  // or during site installation. Setting site_name to an empty string makes
-  // the site and update pages look cleaner.
-  // @see template_preprocess_maintenance_page
-  if (!$variables['db_is_active']) {
-    $variables['site_name'] = '';
-  }
-  drupal_add_css(drupal_get_path('theme', 'nothingmore') . '/css/maintenance-page.css');
-}
- */
 
 /**
  * Override or insert variables into the node template.
  */
 function nothingmore_preprocess_node(&$variables) {
 
+}
+/**
+ * Override or insert variables into the node template.
+ */
+
+
+
+
+
+
+function nothingmore_menu_link(array $variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+
+  $element['#attributes']['class'][] = 'menu-xxx' . $element['#original_link']['plid'];
+
+  if ($element['#below']) {
+    $sub_menu = drupal_render($element['#below']);
+  }
+
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+        $count = 1;
+  return '<li' . drupal_attributes($element['#attributes']) . '>xxx' . $output . $sub_menu . "</li>\n";
 }
 
 /**

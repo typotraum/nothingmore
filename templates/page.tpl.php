@@ -84,12 +84,25 @@
  * @see nothingmore_process_page()
  * @see html.tpl.php
  */
-?>
-
- <!-- page.tpl.php -->
-      <?php print render($page['content']); ?>
-    <!-- end page.tpl.php -->
-
+?><!-- page.tpl.php -->
+<?php if ($main_menu): ?>
+      <div id="main-menu" class="navigation">
+        <?php print theme('links__system_main_menu', array(
+          'links' => $main_menu,
+          'attributes' => array(
+            'id' => 'main-menu-links',
+            'class' => array('links', 'clearfix'),
+          ),
+          'heading' => array(
+            'text' => t('Main menu'),
+            'level' => 'h2',
+            'class' => array('element-invisible'),
+          ),
+        )); ?>
+      </div> <!-- /#main-menu -->
+    <?php endif; ?>
+<?php print render($page['content']); ?>
+ <!-- end page.tpl.php -->
 <?php /*
 
 <div id="page-wrapper"><div id="page">

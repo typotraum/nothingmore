@@ -34,6 +34,8 @@
  * @see template_preprocess_comment_wrapper()
  */
 ?>
+<!-- this is comment-wrapper.tpl.php -->
+<?php /*
 <div id="comments" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php if ($content['comments'] && $node->type != 'forum'): ?>
     <?php print render($title_prefix); ?>
@@ -47,4 +49,5 @@
     <h2 class="title comment-form"><?php print t('Add new comment'); ?></h2>
     <?php print render($content['comment_form']); ?>
   <?php endif; ?>
-</div>
+</div> */
+?>

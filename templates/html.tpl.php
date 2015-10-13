@@ -46,9 +46,9 @@
 <!-- html.tpl.php -->
 <html>
 <head>
-  <?php print $head; ?>
+  <?php // print $head; ?>
   <title><?php print $head_title; ?></title>
-  <?php print $styles; ?>
+  <?php // print $styles; ?>
   <?php // print $scripts; ?>
 </head>
 <body>
